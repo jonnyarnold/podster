@@ -1,0 +1,23 @@
+doctype html
+title Podster
+
+form(action="/episode" method="POST")
+  label(for="file_url") Link to audio file
+  input#file_url(name="file_url")
+
+  label(for="title") Title
+  input#title(name="title")
+
+  label(for="recording_date") Record Date
+  input#recording_date(name="recording_date")
+
+  label(for="description") Description
+  textarea#description(name="description")
+
+  label(for="length_time") Length (Time)
+  input#length_time(name="length_time" placeholder="1:23:45")
+
+  label(for="length_bytes") Length (Bytes)
+  input#length_bytes(name="length_bytes" placeholder="87654321")
+
+  button(type="submit") Add

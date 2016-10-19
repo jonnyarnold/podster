@@ -11,7 +11,13 @@ It deliberately does **not** feature:
 
 ## Get It
 
-TODO: Add Deploy to Heroku button.
+**Step 1.** Get yourself a [Heroku](heroku.com) account.
+
+**Step 2.** Press this button:
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+**Step 3.** There is no Step 3.
 
 ## Use It
 

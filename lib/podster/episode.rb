@@ -1,5 +1,6 @@
 require "nokogiri"
 require "securerandom"
+require "time"
 
 class Episode < Struct.new(*%i{
   id
@@ -18,6 +19,11 @@ class Episode < Struct.new(*%i{
     if id.nil?
       self[:id] = SecureRandom.hex(4)
     end
+
+    # Make sure the recording date is, well, a date.
+    unless self[:recording_date].is_a? Time
+      self[:recording_date] = Time.parse(self[:recording_date])
+    end
   end
 
   def self.from_hash(h, podcast:)
@@ -31,7 +37,7 @@ class Episode < Struct.new(*%i{
 <item>
   <guid>#{file_url}</guid>
   <title>#{title}</title>
-  <pubDate>#{recording_date}</pubDate>
+  <pubDate>#{recording_date.rfc822}</pubDate>
   <link></link>
   <itunes:duration>#{length_time}</itunes:duration>
   <itunes:author>#{podcast.webmaster_name}</itunes:author>

@@ -1,4 +1,6 @@
 require "nokogiri"
+
+
 module Podster
   class Podcast < Struct.new(*%i{
     title
@@ -42,12 +44,12 @@ module Podster
     <channel>
       <title>#{title}</title>
       <link>#{url}</link>
-      <pubDate>#{publish_date}</pubDate>
-      <lastBuildDate>#{publish_date}</lastBuildDate>
+      <pubDate>#{publish_date.rfc822}</pubDate>
+      <lastBuildDate>#{publish_date.rfc822}</lastBuildDate>
       <ttl>60</ttl>
       <language>#{language}</language>
       <copyright>All rights reserved</copyright>
-      <webMaster>#{webmaster_email}</webMaster>
+      <webMaster>#{webmaster_email} (#{webmaster_name})</webMaster>
       <description>#{description}</description>
       <itunes:owner>
         <itunes:name>#{webmaster_name}</itunes:name>

@@ -11,6 +11,8 @@ MONGODB_COLLECTION = ENV["MONGODB_COLLECTION"] || "podcasts"
 ADMIN_USERNAME = ENV["ADMIN_USERNAME"] || "admin"
 ADMIN_PASSWORD = ENV["ADMIN_PASSWORD"] || "password"
 
+PODCAST_SEED_FILE = "podcast.yml"
+
 module Podster
   class Store
 
@@ -26,7 +28,8 @@ module Podster
     # Gets the podcast for this instance.
     def podcast
       # We only ever have one podcast.
-      Podcast.from_hash(@collection.find.first)
+      podcast_hash = @collection.find.first || seed!
+      Podcast.from_hash(podcast_hash)
     end
 
     # Saves the podcast for this instance.
@@ -43,5 +46,10 @@ module Podster
       @collection.delete_many
     end
 
+    def seed!
+      podcast_hash = Podster::Podcast.from_hash(YAML.load_file(PODCAST_SEED_FILE)).to_h
+      @collection.update_one({}, podcast_hash, upsert: true)
+      podcast_hash
+    end
   end
 end

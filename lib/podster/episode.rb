@@ -16,7 +16,7 @@ class Episode < Struct.new(*%i{
   def initialize(*opts)
     super(*opts)
     
-    if id.nil?
+    if self[:id].nil?
       self[:id] = SecureRandom.hex(4)
     end
 
@@ -30,6 +30,15 @@ class Episode < Struct.new(*%i{
     ep = super(h)
     ep.podcast = podcast
     ep
+  end
+
+  def minutes
+    time_bits = length_time.split(":")
+    seconds = time_bits[-1].to_i
+    minutes = time_bits[-2].to_i
+    hours = time_bits[-3].to_i || 0
+
+    minutes + (hours * 60)
   end
 
   def to_xml_node    

@@ -1,0 +1,59 @@
+.avatar
+  max-width: 200px
+  float: left
+  margin: 0 $unit $unit 0
+  box-shadow: 0 5px 10px -3px black
+
+.rss-link
+  font-weight: $font-weight-bold
+  color: $color-highlight2
+
+  &:hover
+    color: $color-highlight
+
+.episodes
+  background-color: #F9F9F9
+  margin: 0
+  padding: ($unit / 2) $unit
+
+  .episode
+    margin: $unit 0
+    padding: $unit
+    list-style-type: none
+    display: block
+    background-color: white
+    box-shadow: 0 2px 5px -2px black
+    min-height: 100px
+    color: $color-normal
+
+    border: 0
+    border-top: 3px solid white
+    transition: border linear 0.3s, box-shadow linear 0.3s
+
+    .actions
+      float: right
+
+      .button
+        display: block
+        margin: ($unit / 2) 0
+        text-align: center
+
+    &:hover
+      border-top: 3px solid $color-highlight2
+      box-shadow: 0 2px 8px -2px black
+
+    h3
+      margin: 0
+      padding: 0
+
+    h4
+      margin: 0
+      padding: 0 0 $unit 0
+      font-weight: normal
+
+    &.new
+      min-height: 50px
+
+      h3
+        text-align: center
+        line-height: 50px

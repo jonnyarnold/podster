@@ -1,14 +1,29 @@
-doctype html
-title Podster
+title #{@episode.title} - Podster
 
-p Link to audio file
-p #{@episode.file_url}
+h1 Edit Episode
 
-p Title
-p #{@episode.title}
+.form-wrapper
+  form(action="/episode/#{@episode.id}" method="POST")
+    input(type="hidden" name="id" value=@episode.id)
 
-p Record Date
-p #{@episode.recording_date}
+    label(for="file_url") Link to audio file
+    input#file_url(name="file_url" value=@episode.file_url)
+  
+    label(for="title") Title
+    input#title(name="title" value=@episode.title)
+  
+    label(for="recording_date") Record Date
+    input#recording_date(name="recording_date" placeholder="25/12/2000" value=@episode.recording_date)
 
-p Description
-p #{@episode.description}
+    label(for="description") Description
+    textarea#description(name="description")= @episode.description
+
+    label(for="length_time") Length (Time)
+    input#length_time(name="length_time" placeholder="1:23:45" value=@episode.length_time)
+
+    label(for="length_bytes") Length (Bytes)
+    input#length_bytes(name="length_bytes" placeholder="87654321" value=@episode.length_bytes)
+
+    .actions
+      button.button(type="submit") Save Changes
+      a.button.danger(href="/episode/#{@episode.id}/delete") Delete Episode

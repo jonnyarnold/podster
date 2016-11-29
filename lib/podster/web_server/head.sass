@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,600')
+
+$font-weight-bold: 600
+$unit: 20px
+
+$color-normal: #666
+$color-highlight: #000
+$color-highlight2: #FA0
+
+html, input, textarea, button
+  font-family: 'Cabin', sans-serif
+  -webkit-font-smoothing: antialiased
+  font-size: 16px
+
+html
+  max-width: 800px
+  margin: auto
+  color: $color-normal
+
+h1, h2, h3
+  font-weight: $font-weight-bold
+  color: $color-highlight
+  margin: 0
+  padding: 0 0 $unit 0
+
+h2
+  clear: both
+
+a
+  text-decoration: none
+  color: $color-highlight
+
+  &:hover
+    color: $color-highlight2
+
+.logo
+  float: right
+  font-weight: $font-weight-bold
+  background-color: $color-highlight
+  color: white
+  border-radius: 100px
+  padding: 10px 20px
+
+  .name
+    display: inline
+
+  .icon
+    display: inline
+    color: $color-highlight2
+
+.button
+  border-radius: 100px
+  padding: 10px 20px
+  margin: 0 $unit
+  border: 1px solid $color-highlight
+  color: $color-highlight
+  cursor: pointer
+  background-color: white
+  transition: color linear 0.3s, background-color linear 0.3s
+
+  &:hover, &:focus
+    background-color: $color-highlight
+    color: white
+
+.danger:hover
+  color: white
+  border-color: #A00
+  background-color: #A00

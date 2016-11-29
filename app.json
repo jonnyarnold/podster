@@ -1,5 +1,12 @@
 {
   "name": "Podster",
   "description": "A super simple podcast feed manager",
-  "repository": "https://github.com/jonnyarnold/podster"
+  "repository": "https://github.com/jonnyarnold/podster",
+  "addons": ["mongolab"],
+  "env": {
+    "ADMIN_PASSWORD": {
+      "description": "The password to use when submitting changes.",
+      "generator": "secret"
+    }
+  }
 }

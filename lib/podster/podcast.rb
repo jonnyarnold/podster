@@ -20,8 +20,13 @@ module Podster
       episodes_hash = episodes_hash || []
     end
 
+    # A list of episodes, returned in reverse chronological order
+    # (the latest episode will be first)
     def episodes
-      episodes_hash.map { |h| Episode.from_hash(h, podcast: self) }
+      episodes_hash
+        .map { |h| Episode.from_hash(h, podcast: self) }
+        .sort_by { |ep| ep.recording_date }
+        .reverse
     end
 
     def episode(id)
@@ -31,6 +36,20 @@ module Podster
     def add_episode(e)
       episodes_hash << e.to_h
       e.podcast = self
+      self
+    end
+
+    # Replaces an existing episode with the given one.
+    # Episodes are checked on ID.
+    def update_episode(e)
+      delete_episode(e.id)
+      add_episode(e)
+    end
+
+    def delete_episode(id)
+      new_episodes_hash = episodes_hash.reject { |h| h[:id] == id }
+      raise "Cannot find episode!" if new_episodes_hash.length == episodes_hash.length
+      self[:episodes_hash] = new_episodes_hash
       self
     end
 

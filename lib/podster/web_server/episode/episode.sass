@@ -1,0 +1,52 @@
+.form-wrapper
+  clear: both
+  background-color: #F9F9F9
+  margin: 0
+  padding: $unit
+
+form
+  margin: auto
+  padding: $unit
+  display: block
+  background-color: white
+  box-shadow: 0 2px 5px -2px black
+  max-width: 600px
+
+  text-align: center
+
+  label
+    display: block
+    margin: 0
+    padding: $unit 0 0 0
+
+  input, textarea
+    padding: ($unit / 4) ($unit / 2)
+    border-radius: 5px
+    outline: none
+    border: 1px solid $color-normal
+    color: $color-normal
+    transition: box-shadow linear 0.3s
+
+    &:hover, &:active, &:focus
+      border-color: $color-highlight
+      box-shadow: 0 0 2px 0 black
+
+    &:focus
+      color: $color-highlight
+
+  textarea
+    display: block
+    min-height: 100px
+    width: 90%
+    margin: auto
+
+  .actions
+    margin: $unit 0 0 0
+
+aside
+  font-size: 13px
+  padding: $unit
+  margin: $unit
+  background-color: #F9F9F9
+  border: 1px solid $color-highlight
+  border-radius: 5px

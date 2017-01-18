@@ -25,6 +25,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    sass (3.4.22)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -43,6 +44,7 @@ DEPENDENCIES
   nokogiri
   rake
   rspec
+  sass
   sinatra
   slim
 

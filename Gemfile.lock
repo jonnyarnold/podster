@@ -8,7 +8,7 @@ GEM
       bson (~> 4.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-    rack (1.5.2)
+    rack (1.6.13)
     rack-protection (1.5.2)
       rack
     rake (12.3.3)
